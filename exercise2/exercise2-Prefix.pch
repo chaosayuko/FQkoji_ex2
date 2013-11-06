@@ -1,0 +1,36 @@
+//
+// Prefix header for all source files of the 'exercise2' target in the 'exercise2' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import "AppData.h"
+    #import "UIView+FQExtension.h"
+#endif
+
+#ifdef DEBUG
+#define LOG(...) NSLog(__VA_ARGS__)
+#define FUNC() NSLog(@"%s",__func__)
+
+#else
+#define LOG(...)
+#define FUNC()
+#endif
+
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define RGB(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
+#define ITOSTR(integer) [NSString stringWithFormat:@"%d", integer]
+#define ORIENTATION [[UIDevice currentDevice] orientation]
+
+#define STATUS_BAR_HEIGHT 20
+
+#define DEFAULT_LABEL_HEIGHT 30
+#define DAY_SECOND 24*60*60
